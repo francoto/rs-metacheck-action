@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y git && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install the RsMetaCheck tool from PyPI
+RUN pip install --no-cache-dir rsmetacheck
+
+# Copies the entrypoint script into the container
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Code file to execute when the docker container starts up
+ENTRYPOINT ["/entrypoint.sh"]

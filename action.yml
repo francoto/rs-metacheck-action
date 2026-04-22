@@ -1,0 +1,46 @@
+name: "RsMetaCheck"
+description: "Detect metadata pitfalls in software repositories using SoMEF."
+author: "goblin"
+branding:
+  icon: "check-circle"
+  color: "blue"
+
+inputs:
+  input:
+    description: 'One or more: GitHub/GitLab URLs, JSON files containing repositories. (e.g. "https://github.com/owner/repo")'
+    required: true
+  skip_somef:
+    description: "Skip SoMEF execution and analyze existing SoMEF output files directly."
+    required: false
+    default: "false"
+  pitfalls_output:
+    description: "Directory to store pitfall JSON-LD files."
+    required: false
+    default: "./pitfalls_outputs"
+  somef_output:
+    description: "Directory to store SoMEF output files."
+    required: false
+    default: "./somef_outputs"
+  analysis_output:
+    description: "File path for summary results."
+    required: false
+    default: "./analysis_results.json"
+  threshold:
+    description: "SoMEF confidence threshold. Only used when running SoMEF."
+    required: false
+    default: "0.8"
+  branch:
+    description: "Branch of the repository to analyze. Overrides the default branch. Only used when running SoMEF."
+    required: false
+  generate_codemeta:
+    description: "Generate codemeta files for each repository. Only used when running SoMEF."
+    required: false
+    default: "false"
+  verbose:
+    description: "Include both detected AND undetected pitfalls in the output JSON-LD."
+    required: false
+    default: "false"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
