@@ -50,5 +50,21 @@ fi
 echo "Executing RsMetaCheck command:"
 echo "$CMD"
 
-# Evaluate the command so spaces inside quotes are respected properly
-eval "$CMD"
+RSMETA_EXIT=0
+eval "$CMD" || RSMETA_EXIT=$?
+
+# Run post-processing for GitHub Actions output
+if [ -n "$GITHUB_STEP_SUMMARY" ] || [ -n "$GITHUB_OUTPUT" ]; then
+  echo "Generating GitHub Actions output..."
+  POST_EXIT=0
+  python3 /postprocess.py || POST_EXIT=$?
+else
+  POST_EXIT=0
+fi
+
+# Use post-process exit code (1 = pitfalls found) if it applies,
+# otherwise fall back to the rsmetacheck exit code
+if [ "$POST_EXIT" -ne 0 ]; then
+  exit "$POST_EXIT"
+fi
+exit "$RSMETA_EXIT"

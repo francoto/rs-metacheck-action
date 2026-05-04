@@ -41,6 +41,18 @@ inputs:
     required: false
     default: "false"
 
+outputs:
+  has_pitfalls:
+    description: "'true' if any pitfalls or warnings were detected"
+  total_pitfalls:
+    description: "Total number of pitfalls detected"
+  total_warnings:
+    description: "Total number of warnings detected"
+  pitfalls_found:
+    description: "JSON array of detected pitfall codes (e.g. '[\"P001\",\"P003\"]')"
+  warnings_found:
+    description: "JSON array of detected warning codes (e.g. '[\"W001\",\"W002\"]')"
+
 runs:
   using: "docker"
   image: "Dockerfile"

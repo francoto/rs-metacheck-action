@@ -8,8 +8,9 @@ RUN apt-get update && \
 # Install the RsMetaCheck tool from PyPI
 RUN pip install --no-cache-dir rsmetacheck
 
-# Copies the entrypoint script into the container
+# Copies scripts into the container
 COPY entrypoint.sh /entrypoint.sh
+COPY postprocess.py /postprocess.py
 RUN chmod +x /entrypoint.sh
 
 # Code file to execute when the docker container starts up
