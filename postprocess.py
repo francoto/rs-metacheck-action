@@ -82,9 +82,11 @@ def main() -> int:
         _set_github_output(github_output_path, total_pitfalls, total_warnings, pitfalls_found, warnings_found)
 
     for p in pitfalls_found:
-        print(f"::error title={p.get('pitfall_code','')}::{p.get('pitfall_desc','')} (detected in {p.get('count',0)} repo(s))")
+        url = p.get("pitfall", f"https://w3id.org/rsmetacheck/catalog/#{p.get('pitfall_code','')}")
+        print(f"::error title=RsMetaCheck {p.get('pitfall_code','')}::{p.get('pitfall_desc','')} | More info: {url}")
     for w in warnings_found:
-        print(f"::warning title={w.get('pitfall_code','')}::{w.get('pitfall_desc','')} (detected in {w.get('count',0)} repo(s))")
+        url = w.get("pitfall", f"https://w3id.org/rsmetacheck/catalog/#{w.get('pitfall_code','')}")
+        print(f"::warning title=RsMetaCheck {w.get('pitfall_code','')}::{w.get('pitfall_desc','')} | More info: {url}")
 
     return 1 if pitfalls_found else 0
 
