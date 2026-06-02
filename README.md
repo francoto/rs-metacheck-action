@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run RsMetaCheck
-        uses: your-github-username/rsmetacheck-action@v1
+        uses: SoftwareUnderstanding/rs-metacheck-action@v1
         with:
           # You can pass the repository URL automatically
           input: "https://github.com/${{ github.repository }}"
