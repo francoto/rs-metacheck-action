@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run RsMetaCheck
-        uses: SoftwareUnderstanding/rs-metacheck-action@v1
+        uses: SoftwareUnderstanding/rs-metacheck-action@0.3.1
         with:
           # You can pass the repository URL automatically
           input: "https://github.com/${{ github.repository }}"
