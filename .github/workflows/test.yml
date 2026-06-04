@@ -16,7 +16,7 @@ jobs:
         # defined in the root of the CURRENT repository.
         uses: ./
         with:
-          input: "https://github.com/${{ github.repository }}"
+          # test with default input (current repository)
           verbose: "true"
 
       - name: Verify outputs generated

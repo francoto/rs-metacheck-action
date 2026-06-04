@@ -9,8 +9,13 @@ if [ -n "$INPUT_INPUT" ]; then
   # Note: Do not quote $INPUT_INPUT here in case multiple URLs are passed as spaces
   CMD="$CMD --input $INPUT_INPUT"
 else
-  echo "Error: The 'input' argument is required."
-  exit 1
+  # use the repository URL as the default input if not provided
+  if [ -n "$GITHUB_REPOSITORY" ]; then
+    CMD="$CMD --input https://github.com/$GITHUB_REPOSITORY"
+  else # if github repository url is not existing then return error
+    echo "Error: The 'input' argument is required."
+    exit 1
+  fi
 fi
 
 # Handle boolean flags

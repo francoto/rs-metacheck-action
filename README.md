@@ -25,10 +25,10 @@ jobs:
 
       - name: Run RsMetaCheck
         uses: SoftwareUnderstanding/rs-metacheck-action@0.3.1
+        # optional arguments
         with:
-          # You can pass the repository URL automatically
-          input: "https://github.com/${{ github.repository }}"
-          pitfalls_output: "./pitfalls_outputs"
+          input: https://github.com/$GITHUB_REPOSITORY # if input is omited it will use GITHUB_REPOSITORY url
+          pitfalls_output: "./pitfalls_outputs" 
           verbose: "false"
 ```
 
@@ -45,6 +45,7 @@ jobs:
 | `branch`            | Branch of the repository to analyze.                                   | No       |                           |
 | `generate_codemeta` | Generate codemeta files for each repository.                           | No       | `false`                   |
 | `verbose`           | Include both detected AND undetected pitfalls in the output JSON-LD.   | No       | `false`                   |
+| `config`           | Specify the location of the `rsmetacheck.toml` to define the configuration. RSMetaCheck automatically detects a .rsmetacheck.toml (or rsmetacheck.toml) file at the working directory. | No       | `rsmetacheck.toml` |
 
 ### Outputs
 
