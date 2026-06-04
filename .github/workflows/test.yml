@@ -3,6 +3,8 @@ name: Test the Action
 on:
   push:
     branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
   test-rsmetacheck:
