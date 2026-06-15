@@ -18,7 +18,6 @@ jobs:
         # defined in the root of the CURRENT repository.
         uses: ./
         with:
-          # test with default input (current repository)
           verbose: "true"
 
       - name: Verify outputs generated
