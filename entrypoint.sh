@@ -13,7 +13,7 @@ else
   if [ -n "$GITHUB_REPOSITORY" ]; then
     CMD="$CMD --input https://github.com/$GITHUB_REPOSITORY"
   else # if github repository url is not existing then return error
-    echo "Error: The 'input' argument is required."
+    echo "Error: The 'input' argument is required and $GITHUB_REPOSITORY environment variable is not set. Please provide an input or run this action within a GitHub repository context."
     exit 1
   fi
 fi
