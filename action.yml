@@ -8,7 +8,8 @@ branding:
 inputs:
   input:
     description: 'One or more: GitHub/GitLab URLs, JSON files containing repositories. (e.g. "https://github.com/owner/repo")'
-    required: true
+    required: false
+    default: "https://github.com/${GITHUB_REPOSITORY}"
   skip_somef:
     description: "Skip SoMEF execution and analyze existing SoMEF output files directly."
     required: false

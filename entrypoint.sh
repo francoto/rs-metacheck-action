@@ -9,7 +9,7 @@ if [ -n "$INPUT_INPUT" ]; then
   # Note: Do not quote $INPUT_INPUT here in case multiple URLs are passed as spaces
   CMD="$CMD --input $INPUT_INPUT"
 else
-  echo "Error: The 'input' argument is required."
+  echo "Error: The 'input' argument is required and $GITHUB_REPOSITORY environment variable is not set. Please provide an input or run this action within a GitHub repository context."
   exit 1
 fi
 
