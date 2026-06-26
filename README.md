@@ -27,9 +27,9 @@ jobs:
         uses: SoftwareUnderstanding/rs-metacheck-action@0.3.1
         # optional arguments
         with:
-          input: https://github.com/$GITHUB_REPOSITORY # if input is omited it will use GITHUB_REPOSITORY url
           pitfalls_output: "./pitfalls_outputs" 
           verbose: "false"
+          # config: ".github/workflow/rsmetacheck.toml"
 ```
 
 ### Inputs

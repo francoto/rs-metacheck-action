@@ -47,6 +47,10 @@ if [ -n "$INPUT_BRANCH" ]; then
   CMD="$CMD --branch \"$INPUT_BRANCH\""
 fi
 
+if [ -n "$INPUT_CONFIG" ]; then
+  CMD="$CMD --config \"$INPUT_CONFIG_FILE\""
+fi
+
 echo "Executing RsMetaCheck command:"
 echo "$CMD"
 
