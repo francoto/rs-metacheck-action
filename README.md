@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Run RsMetaCheck
-        uses: SoftwareUnderstanding/rs-metacheck-action@0.3.1
+        uses: SoftwareUnderstanding/rs-metacheck-action@0.3.2
         # optional arguments
         with:
           input: https://github.com/$GITHUB_REPOSITORY # if input is omited it will use GITHUB_REPOSITORY url
