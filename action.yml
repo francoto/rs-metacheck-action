@@ -41,6 +41,12 @@ inputs:
     description: "Include both detected AND undetected pitfalls in the output JSON-LD."
     required: false
     default: "false"
+  config:
+    description: "Path to a TOML configuration file for RsMetaCheck."
+    required: false
+  config_profile:
+    description: "Profile name in the TOML configuration file to use for RsMetaCheck."
+    required: false
 
 outputs:
   has_pitfalls:
