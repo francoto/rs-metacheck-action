@@ -29,6 +29,7 @@ jobs:
         with:
           pitfalls_output: "./pitfalls_outputs" 
           verbose: "false"
+          branch: $GITHUB_REF # useful to run the analysis on the actual branch (default on main)
           # config: ".github/workflow/rsmetacheck.toml"
           # config-profile: "prerelease" # use to set a profile defined in config. Overides the active_profile defined in rsmetacheck.toml
 ```
