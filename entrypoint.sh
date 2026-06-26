@@ -51,6 +51,10 @@ if [ -n "$INPUT_CONFIG" ]; then
   CMD="$CMD --config \"$INPUT_CONFIG_FILE\""
 fi
 
+if [ -n "$INPUT_CONFIG_PROFILE" ]; then
+  CMD="$CMD --config-profile \"$INPUT_CONFIG_PROFILE\""
+fi
+
 echo "Executing RsMetaCheck command:"
 echo "$CMD"
 

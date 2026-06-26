@@ -30,13 +30,14 @@ jobs:
           pitfalls_output: "./pitfalls_outputs" 
           verbose: "false"
           # config: ".github/workflow/rsmetacheck.toml"
+          # config-profile: "prerelease" # use to set a profile defined in config. Overides the active_profile defined in rsmetacheck.toml
 ```
 
 ### Inputs
 
 | Input               | Description                                                            | Required | Default                   |
 | ------------------- | ---------------------------------------------------------------------- | -------- | ------------------------- |
-| `input`             | One or more: GitHub/GitLab URLs, JSON files containing repositories.   | **Yes**  |                           |
+| `input`             | One or more: GitHub/GitLab URLs, JSON files containing repositories.   | No  |   https://github.com/$GITHUB_REPOSITORY                        |
 | `skip_somef`        | Skip SoMEF execution and analyze existing SoMEF output files directly. | No       | `false`                   |
 | `pitfalls_output`   | Directory to store pitfall JSON-LD files.                              | No       | `./pitfalls_outputs`      |
 | `somef_output`      | Directory to store SoMEF output files.                                 | No       | `./somef_outputs`         |
@@ -45,7 +46,8 @@ jobs:
 | `branch`            | Branch of the repository to analyze.                                   | No       |                           |
 | `generate_codemeta` | Generate codemeta files for each repository.                           | No       | `false`                   |
 | `verbose`           | Include both detected AND undetected pitfalls in the output JSON-LD.   | No       | `false`                   |
-| `config`           | Specify the location of the `rsmetacheck.toml` to define the configuration. RSMetaCheck automatically detects a .rsmetacheck.toml (or rsmetacheck.toml) file at the working directory. | No       | `rsmetacheck.toml` |
+| `config`            | Specify the location of the `rsmetacheck.toml` to define the configuration. RSMetaCheck automatically detects a .rsmetacheck.toml (or rsmetacheck.toml) file at the working directory. | No       | `rsmetacheck.toml`        |
+| `config-profile`    | Specify the profile to use. SHould be defined in the config file | No | |
 
 ### Outputs
 
