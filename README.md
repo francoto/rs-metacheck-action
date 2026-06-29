@@ -31,7 +31,7 @@ jobs:
           verbose: "false"
           branch: $GITHUB_REF # useful to run the analysis on the actual branch (default on main)
           # config: ".github/workflow/rsmetacheck.toml"
-          # config-profile: "prerelease" # use to set a profile defined in config. Overides the active_profile defined in rsmetacheck.toml
+          # config_profile: "prerelease" # use to set a profile defined in config. Overides the active_profile defined in rsmetacheck.toml
 ```
 
 ### Inputs
@@ -48,7 +48,7 @@ jobs:
 | `generate_codemeta` | Generate codemeta files for each repository.                           | No       | `false`                   |
 | `verbose`           | Include both detected AND undetected pitfalls in the output JSON-LD.   | No       | `false`                   |
 | `config`            | Specify the location of the `rsmetacheck.toml` to define the configuration. RSMetaCheck automatically detects a .rsmetacheck.toml (or rsmetacheck.toml) file at the working directory. | No       | `rsmetacheck.toml`        |
-| `config-profile`    | Specify the profile to use. SHould be defined in the config file | No | |
+| `config_profile`    | Specify the profile to use. SHould be defined in the config file | No | |
 
 ### Outputs
 
