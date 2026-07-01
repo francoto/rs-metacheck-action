@@ -48,7 +48,7 @@ if [ -n "$INPUT_BRANCH" ]; then
 fi
 
 if [ -n "$INPUT_CONFIG" ]; then
-  CMD="$CMD --config \"$INPUT_CONFIG_FILE\""
+  CMD="$CMD --config \"$INPUT_CONFIG\""
 fi
 
 if [ -n "$INPUT_CONFIG_PROFILE" ]; then
